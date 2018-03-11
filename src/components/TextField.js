@@ -35,17 +35,28 @@ const inputs = {
 }
 
 const TextField = ({hintText}) => {
-		return (
-			<div style={parent}>
-				<div className="inner">
-				</div>
-				<input type="text" style={inputs} placeholder={hintText} />
-				<div style={{display: 'block'}}>
-					<hr aria-hidden="true" className="hr-field" />
-					<hr aria-hidden="true" className="hr-field2" />
-				</div> 
-			</div>
-		);	
+    let a = '';
+
+	return (
+		<div style={parent}>
+			<div className="inner"></div>
+			<input 
+                type="text"  
+                style={inputs} 
+                placeholder={hintText} 
+                onFocus={() => {
+                    a.classList.add('expand');
+                }}
+                 onBlur={() => {
+                    a.classList.remove('expand');
+                }} 
+                />
+			<div style={{display: 'block'}}>
+				<hr aria-hidden="true" className="hr-field" />
+				<hr aria-hidden="true" ref={(input) => a = input } className="hr-field2" />
+			</div> 
+		</div>
+	);	
 };//
 TextField.propTypes = {
 	hintText 	  : PropTypes.string,

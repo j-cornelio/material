@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 const FlatButton = ({label, primary, secondary, disabled, onClick}) => {
 		let myClass = '';
 
