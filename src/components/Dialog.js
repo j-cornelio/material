@@ -11,12 +11,17 @@ class Dialog extends Component{
 
 			DIV.classList.add('overlay');
 			document.body.appendChild(DIV);
+
+			DIV.onclick = nextProps.handleClose;
 		}
 		if(!nextProps.open){
-			const over = document.querySelector('.overlay');
+			const overlay = document.querySelector('.overlay');
+
+
 			document.querySelector('#dialog').classList.remove('dialogMove');
 			//document.querySelector('.overlay').classList.remove('overlay')			
-			over.parentNode.removeChild(over);			
+			overlay.parentNode.removeChild(overlay);
+
 		}	
 	}
 
