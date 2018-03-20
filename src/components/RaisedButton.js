@@ -1,31 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React 		from 'react';
+import PropTypes 	from 'prop-types';
+import classNames 	from 'classnames';
 
-const RaisedButton = ({label, primary, secondary, disabled, onClick}) => {
-		let myClass = '';
+const RaisedButton = ({label, primary, secondary, disabled, onClick, style, className}) => {
+		//let myClass = '';
 
-		switch(true){
-		    case primary:
-				myClass = 'primary';
-			break;
+		// switch(true){
+		//     case primary:
+		// 		myClass = 'primary';
+		// 		break;
 
-		    case secondary:
-				myClass = 'secondary';
-			break;
+		//     case secondary:
+		// 		myClass = 'secondary';
+		// 		break;
 
-			default:
-				myClass = 'default'
-		}
+		// 	default:
+		// 		myClass = 'default'
+		// }
+
+		var theStyles = classNames({
+				default: true,
+				primary,
+				secondary,
+				'raised': true,
+				style,
+			});
+
 		return (
 			<div className="buttonWrap">
 				<button 
 					onClick={onClick} 
-					className={[myClass, 'raised'].join(' ')}
+					className = {theStyles}
 				>
-					<span>{label}</span> 
+					<span>{label}</span>
 				</button>
 			</div>
-		);	
+		);
 };//
 RaisedButton.propTypes = {
 	label 	  : PropTypes.string,

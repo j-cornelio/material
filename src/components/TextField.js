@@ -34,27 +34,37 @@ const inputs = {
     height: '100%'
 }
 
-const TextField = ({hintText}) => {
+const TextField = ({hintText, errorText, id}) => {
     let a = '';
+
+    let error = !!errorText ? <p className="required">{errorText}</p> : '';//
+    let errorClass = errorText ? 'errorLine' : '';
+    let inputError = errorText ? 'inputError' : '';
 
 	return (
 		<div style={parent}>
 			<div className="inner"></div>
 			<input 
-                type="text"  
-                style={inputs} 
-                placeholder={hintText} 
+                id={id}
+                type="text"
+                style={inputs}
+                placeholder={hintText}
                 onFocus={() => {
                     a.classList.add('expand');
                 }}
                  onBlur={() => {
                     a.classList.remove('expand');
-                }} 
-                />
-			<div style={{display: 'block'}}>
-				<hr aria-hidden="true" className="hr-field" />
+                }}
+                className={inputError} 
+            />
+
+            {error}
+			
+            <div style={{display: 'block'}}>
+				<hr aria-hidden="true" className={[errorClass, 'hr-field'].join(' ')} />
 				<hr aria-hidden="true" ref={(input) => a = input } className="hr-field2" />
-			</div> 
+
+			</div>
 		</div>
 	);	
 };//

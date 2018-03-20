@@ -1,8 +1,9 @@
 {
-  "name": "best-practice",
-  "version": "0.1.0",
-  "private": true,
+  "name": "cmui",
+  "version": "0.1.1",
+  "private": false,
   "dependencies": {
+    "classnames": "^2.2.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
